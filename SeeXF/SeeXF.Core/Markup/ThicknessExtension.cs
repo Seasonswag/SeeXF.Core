@@ -32,10 +32,10 @@ namespace SeeXF.Core.Markup
             if (value.Contains("-"))
             {
                 string[] arr = value.Split('-');
-                var scale = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width / AppSetting.DesignWidth;
+                var scale = (Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width / Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Density) / AppSetting.DesignWidth;
                 if (arr.Length==2)
                 {
-                    return new Thickness(Convert.ToDouble(arr[0]), Convert.ToDouble(arr[1]));
+                    return new Thickness(Convert.ToDouble(arr[0]) * scale, Convert.ToDouble(arr[1]) * scale);
                 }
                  return new Thickness(Convert.ToDouble(arr[0]) * scale, Convert.ToDouble(arr[1]) * scale, Convert.ToDouble(arr[2]) * scale, Convert.ToDouble(arr[3]) * scale);
             }

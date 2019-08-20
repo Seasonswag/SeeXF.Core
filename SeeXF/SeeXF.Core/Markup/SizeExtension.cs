@@ -56,7 +56,7 @@ namespace SeeXF.Core.Markup
         public static double GetSize(string value)
         {
             var designValue = Convert.ToDouble(value);
-            return (designValue * Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width) / AppSetting.DesignWidth;
+            return (designValue * Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width/Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Density) / AppSetting.DesignWidth;
         }
     }
 }
